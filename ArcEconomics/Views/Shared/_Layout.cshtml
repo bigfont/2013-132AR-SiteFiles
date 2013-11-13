@@ -6,10 +6,12 @@
         <title>@ViewBag.Title - My ASP.NET MVC Application</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/themes/bootstrap/css")
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
+
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
