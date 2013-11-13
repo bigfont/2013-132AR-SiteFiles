@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DropBox.Core\DropBox.Core.csproj">
+    <ProjectReference Include="..\DropBox.Core\AspDropBox.Core.csproj">
       <Project>{dde2b6d5-88b7-46e6-9aa8-d9be55339259}</Project>
-      <Name>DropBox.Core</Name>
+      <Name>AspDropBox.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

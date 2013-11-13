@@ -1,4 +1,4 @@
-﻿using DropBox.Core.Models;
+﻿using AspDropBox.Core.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,12 +8,12 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DropBox.Core
+namespace AspDropBox.Core
 {
     public enum RootType
     { 
         Sandbox, 
-        dropbox
+        DropBox
     }
     public class DropBoxCoreApi
     {

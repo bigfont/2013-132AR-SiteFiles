@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DropBox.Core;
-using DropBox.Core.Models;
+using AspDropBox.Core;
+using AspDropBox.Core.Models;
 using System.Linq;
 
 namespace Dropbox.Core.Tests

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DropBox.Core.Models
+namespace AspDropBox.Core.Models
 {
     public class AccountInfo
     {

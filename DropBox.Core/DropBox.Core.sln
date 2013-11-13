@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropBox.Core", "DropBox.Core\DropBox.Core.csproj", "{DDE2B6D5-88B7-46E6-9AA8-D9BE55339259}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspDropBox.Core", "DropBox.Core\AspDropBox.Core.csproj", "{DDE2B6D5-88B7-46E6-9AA8-D9BE55339259}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcEconomics", "..\ArcEconomics\ArcEconomics.csproj", "{323C1A93-B888-4D01-978B-3CCEDC45D40B}"
 EndProject
