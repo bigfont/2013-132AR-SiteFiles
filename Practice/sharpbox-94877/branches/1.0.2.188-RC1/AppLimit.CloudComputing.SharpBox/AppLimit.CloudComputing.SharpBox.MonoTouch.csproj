@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27DD9940-1A83-4A49-86A6-79167C8C31F8}</ProjectGuid>
+    <ProjectTypeGuids>{E613F3A2-FE9C-494F-B74E-F63BCB86FEA6};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AppLimit.CloudComputing.SharpBox.MonoTouch</RootNamespace>
+    <AssemblyName>AppLimitCloudComputingSharpBoxMonoTouch</AssemblyName>
+    <MtouchSdkVersion>3.1.3</MtouchSdkVersion>
+    <MtouchMinimumOS>3.0</MtouchMinimumOS>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;MONOTOUCH</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchDebug>True</MtouchDebug>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchDebug>False</MtouchDebug>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <DefineConstants>MONOTOUCH</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;MONOTOUCH</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchDebug>True</MtouchDebug>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchDebug>False</MtouchDebug>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DefineConstants>MONOTOUCH</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="System.Json" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties InternalTargetFrameworkVersion="IPhone" />
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Compile Include="DropBox\DropBoxConfiguration.cs" />
+    <Compile Include="DropBox\DropBoxCredentials.cs" />
+    <Compile Include="DropBox\DropBoxStorageProvider.cs" />
+    <Compile Include="DropBox\Logic\DropBoxApplication.cs" />
+    <Compile Include="DropBox\Logic\DropBoxFileStream.cs" />
+    <Compile Include="DropBox\Logic\DropBoxService.cs" />
+    <Compile Include="DropBox\Logic\DropBoxSession.cs" />
+    <Compile Include="DropBox\Objects\DropBoxAccountInfo.cs" />
+    <Compile Include="DropBox\Objects\DropBoxDirectoryEntry.cs" />
+    <Compile Include="DropBox\Objects\DropBoxFileSystemEntry.cs" />
+    <Compile Include="DropBox\Objects\DropBoxQuotaInfo.cs" />
+    <Compile Include="DropBox\Objects\DropBoxToken.cs" />
+    <Compile Include="CloudStorage.cs" />
+    <Compile Include="ICloudDirectoryEntry.cs" />
+    <Compile Include="ICloudeStorageCredentials.cs" />
+    <Compile Include="ICloudFileSystemEntry.cs" />
+    <Compile Include="ICloudStorageConfiguration.cs" />
+    <Compile Include="ICloudStorageProvider.cs" />
+    <Compile Include="Common\PathHelper.cs" />
+    <Compile Include="Common\JsonHelper.cs" />
+    <Compile Include="Common\EncodingHelper.cs" />
+    <Compile Include="Common\StreamHelper.cs" />
+    <Compile Include="SyncFramework\DirectoryDiff.cs" />
+    <Compile Include="SyncFramework\DirectoryDiffResultItem.cs" />
+    <Compile Include="Exceptions\SharpBoxErrorCodes.cs" />
+    <Compile Include="Exceptions\SharpBoxException.cs" />
+    <Compile Include="DropBox\DropBoxBaseCredentials.cs" />
+    <Compile Include="DropBox\DropBoxCredentialsToken.cs" />
+    <Compile Include="ICloudStorageAccessToken.cs" />
+    <Compile Include="Exceptions\ErrorMessages.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppLimit.CloudComputing.oAuth\AppLimit.CloudComputing.oAuth.MonoTouch.csproj">
+      <Project>{B8E5C8A3-AE97-4C99-A998-7E7C3B9F58F1}</Project>
+      <Name>AppLimit.CloudComputing.oAuth.MonoTouch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Exceptions\ErrorMessages.resx" />
+  </ItemGroup>
+</Project>

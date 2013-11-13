@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>fa4ca301-ba85-444a-a08c-bce21139f0ce</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>MyPython.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>MyPython</Name>
+    <RootNamespace>MyPython</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="MyPython.py" />
+    <Compile Include="sdk\conf.py" />
+    <Compile Include="sdk\dropbox\client.py" />
+    <Compile Include="sdk\dropbox\rest.py" />
+    <Compile Include="sdk\dropbox\session.py" />
+    <Compile Include="sdk\dropbox\six.py" />
+    <Compile Include="sdk\dropbox\util.py" />
+    <Compile Include="sdk\dropbox\__init__.py" />
+    <Compile Include="sdk\example\cli_client.py" />
+    <Compile Include="sdk\example\copy_between_accounts.py" />
+    <Compile Include="sdk\example\flask_app\simple_dropbox_app.py" />
+    <Compile Include="sdk\example\search_cache.py" />
+    <Compile Include="sdk\setup.py" />
+    <Compile Include="sdk\tests\test_client.py" />
+    <Compile Include="sdk\tests\test_rest.py" />
+    <Compile Include="sdk\tests\test_session.py" />
+    <Compile Include="sdk\tests\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sdk\" />
+    <Folder Include="sdk\docs\" />
+    <Folder Include="sdk\docs\.doctrees\" />
+    <Folder Include="sdk\docs\_sources\" />
+    <Folder Include="sdk\docs\_static\" />
+    <Folder Include="sdk\dropbox.egg-info\" />
+    <Folder Include="sdk\dropbox\" />
+    <Folder Include="sdk\example\" />
+    <Folder Include="sdk\example\flask_app\" />
+    <Folder Include="sdk\example\flask_app\static\" />
+    <Folder Include="sdk\example\flask_app\templates\" />
+    <Folder Include="sdk\testfiles\" />
+    <Folder Include="sdk\tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sdk\CHANGELOG" />
+    <Content Include="sdk\docs\.buildinfo" />
+    <Content Include="sdk\docs\.doctrees\environment.pickle" />
+    <Content Include="sdk\docs\.doctrees\index.doctree" />
+    <Content Include="sdk\docs\genindex.html" />
+    <Content Include="sdk\docs\index.html" />
+    <Content Include="sdk\docs\objects.inv" />
+    <Content Include="sdk\docs\py-modindex.html" />
+    <Content Include="sdk\docs\search.html" />
+    <Content Include="sdk\docs\searchindex.js" />
+    <Content Include="sdk\docs\_sources\index.txt" />
+    <Content Include="sdk\docs\_static\ajax-loader.gif" />
+    <Content Include="sdk\docs\_static\basic.css" />
+    <Content Include="sdk\docs\_static\comment-bright.png" />
+    <Content Include="sdk\docs\_static\comment-close.png" />
+    <Content Include="sdk\docs\_static\comment.png" />
+    <Content Include="sdk\docs\_static\default.css" />
+    <Content Include="sdk\docs\_static\doctools.js" />
+    <Content Include="sdk\docs\_static\down-pressed.png" />
+    <Content Include="sdk\docs\_static\down.png" />
+    <Content Include="sdk\docs\_static\file.png" />
+    <Content Include="sdk\docs\_static\jquery.js" />
+    <Content Include="sdk\docs\_static\minus.png" />
+    <Content Include="sdk\docs\_static\plus.png" />
+    <Content Include="sdk\docs\_static\pygments.css" />
+    <Content Include="sdk\docs\_static\searchtools.js" />
+    <Content Include="sdk\docs\_static\sidebar.js" />
+    <Content Include="sdk\docs\_static\underscore.js" />
+    <Content Include="sdk\docs\_static\up-pressed.png" />
+    <Content Include="sdk\docs\_static\up.png" />
+    <Content Include="sdk\docs\_static\websupport.js" />
+    <Content Include="sdk\dropbox.egg-info\dependency_links.txt" />
+    <Content Include="sdk\dropbox.egg-info\PKG-INFO" />
+    <Content Include="sdk\dropbox.egg-info\SOURCES.txt" />
+    <Content Include="sdk\dropbox.egg-info\top_level.txt" />
+    <Content Include="sdk\dropbox\client.pyc" />
+    <Content Include="sdk\dropbox\Makefile" />
+    <Content Include="sdk\dropbox\rest.pyc" />
+    <Content Include="sdk\dropbox\session.pyc" />
+    <Content Include="sdk\dropbox\trusted-certs.crt" />
+    <Content Include="sdk\dropbox\util.pyc" />
+    <Content Include="sdk\dropbox\__init__.pyc" />
+    <Content Include="sdk\example\flask_app\README" />
+    <Content Include="sdk\example\flask_app\schema.sql" />
+    <Content Include="sdk\example\flask_app\static\style.css" />
+    <Content Include="sdk\example\flask_app\templates\index.html" />
+    <Content Include="sdk\example\flask_app\templates\layout.html" />
+    <Content Include="sdk\example\flask_app\templates\login.html" />
+    <Content Include="sdk\index.rst" />
+    <Content Include="sdk\LICENSE" />
+    <Content Include="sdk\MANIFEST.in" />
+    <Content Include="sdk\README" />
+    <Content Include="sdk\testfiles\Costa Rican Frog.jpg" />
+    <Content Include="sdk\testfiles\dropbox_song.mp3" />
+    <Content Include="sdk\testfiles\foo.txt" />
+    <Content Include="sdk\tests\server.crt" />
+    <Content Include="sdk\tests\server.key" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>

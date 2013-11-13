@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Libraries", "1. Libraries", "{1DC87C1D-EB2C-4643-9BC1-7879D05772FE}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\Common\AppLimit.Common.Objects.dll = Libraries\Common\AppLimit.Common.Objects.dll
+		Libraries\Common\AppLimit.Common.UI.Windows.Forms.dll = Libraries\Common\AppLimit.Common.UI.Windows.Forms.dll
+		Libraries\JSON.NET\Newtonsoft.Json.Net20.dll = Libraries\JSON.NET\Newtonsoft.Json.Net20.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Tests", "3. Tests", "{B9A6795C-E9AB-4D0B-B5B6-2C927864CEAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox.NUnit", "AppLimit.CloudComputing.SharpBox.NUnit\AppLimit.CloudComputing.SharpBox.NUnit.csproj", "{1136B5E7-92A7-4361-9B0D-BD16920365E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. SharpBox", "2. SharpBox", "{1CE347B3-4B4F-4153-8E7F-73B9335BE56E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox.ClientSample", "AppLimit.CloudComputing.SharpBox.ClientSample\AppLimit.CloudComputing.SharpBox.ClientSample.csproj", "{9720CCC0-3410-4EE3-82EB-1F2765726DBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox", "AppLimit.CloudComputing.SharpBox\AppLimit.CloudComputing.SharpBox.csproj", "{5B779AE9-72B6-4B7E-88B7-47227B92112A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox.CLISample", "AppLimit.CloudComputing.SharpBox.CLISample\AppLimit.CloudComputing.SharpBox.CLISample.csproj", "{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.oAuth", "AppLimit.CloudComputing.oAuth\AppLimit.CloudComputing.oAuth.csproj", "{81C985B7-D30E-4756-A47D-B6441137DCF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Default|Any CPU = Default|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1136B5E7-92A7-4361-9B0D-BD16920365E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1136B5E7-92A7-4361-9B0D-BD16920365E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1136B5E7-92A7-4361-9B0D-BD16920365E2}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{1136B5E7-92A7-4361-9B0D-BD16920365E2}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{1136B5E7-92A7-4361-9B0D-BD16920365E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1136B5E7-92A7-4361-9B0D-BD16920365E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1136B5E7-92A7-4361-9B0D-BD16920365E2} = {B9A6795C-E9AB-4D0B-B5B6-2C927864CEAB}
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF} = {1CE347B3-4B4F-4153-8E7F-73B9335BE56E}
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A} = {1CE347B3-4B4F-4153-8E7F-73B9335BE56E}
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21} = {1CE347B3-4B4F-4153-8E7F-73B9335BE56E}
+		{81C985B7-D30E-4756-A47D-B6441137DCF1} = {1CE347B3-4B4F-4153-8E7F-73B9335BE56E}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = AppLimit.CloudComputing.SharpBox.ClientSample\AppLimit.CloudComputing.SharpBox.ClientSample.csproj
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDropNet", "MyDropNet\MyDropNet.csproj", "{BFDAF9BF-CDF4-4F03-AC9A-6F7FB270C6C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpringSocialDropbox", "MySpringSocialDropbox\MySpringSocialDropbox.csproj", "{F6C16CBF-2DE5-4E25-BB7B-DCE194EC717F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySharpBox", "MySharpBox\MySharpBox.csproj", "{321E9F27-4534-4320-A974-A9C79F4048A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox", "sharpbox-94877\trunk\AppLimit.CloudComputing.SharpBox\AppLimit.CloudComputing.SharpBox.csproj", "{5B779AE9-72B6-4B7E-88B7-47227B92112A}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "MyPython", "MyPython\MyPython.pyproj", "{FA4CA301-BA85-444A-A08C-BCE21139F0CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropBox.CoreApi01", "DropBox.CoreApi01\DropBox.CoreApi01.csproj", "{8F46611E-EBE9-4F63-A21A-065FA37CFB9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{D9972C2C-E18F-4D13-9B7A-68AED8B3D0C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFDAF9BF-CDF4-4F03-AC9A-6F7FB270C6C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFDAF9BF-CDF4-4F03-AC9A-6F7FB270C6C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFDAF9BF-CDF4-4F03-AC9A-6F7FB270C6C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFDAF9BF-CDF4-4F03-AC9A-6F7FB270C6C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C16CBF-2DE5-4E25-BB7B-DCE194EC717F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C16CBF-2DE5-4E25-BB7B-DCE194EC717F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C16CBF-2DE5-4E25-BB7B-DCE194EC717F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C16CBF-2DE5-4E25-BB7B-DCE194EC717F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{321E9F27-4534-4320-A974-A9C79F4048A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321E9F27-4534-4320-A974-A9C79F4048A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321E9F27-4534-4320-A974-A9C79F4048A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321E9F27-4534-4320-A974-A9C79F4048A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA4CA301-BA85-444A-A08C-BCE21139F0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA4CA301-BA85-444A-A08C-BCE21139F0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA4CA301-BA85-444A-A08C-BCE21139F0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA4CA301-BA85-444A-A08C-BCE21139F0CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F46611E-EBE9-4F63-A21A-065FA37CFB9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F46611E-EBE9-4F63-A21A-065FA37CFB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F46611E-EBE9-4F63-A21A-065FA37CFB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F46611E-EBE9-4F63-A21A-065FA37CFB9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9972C2C-E18F-4D13-9B7A-68AED8B3D0C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9972C2C-E18F-4D13-9B7A-68AED8B3D0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9972C2C-E18F-4D13-9B7A-68AED8B3D0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9972C2C-E18F-4D13-9B7A-68AED8B3D0C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

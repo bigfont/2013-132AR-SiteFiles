@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1136B5E7-92A7-4361-9B0D-BD16920365E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AppLimit.CloudComputing.SharpBox.NUnit</RootNamespace>
+    <AssemblyName>AppLimit.CloudComputing.SharpBox.NUnit</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="AppLimit.Common.Toolkit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Common\AppLimit.Common.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DropBoxAuthorizationTests.cs" />
+    <Compile Include="AccountDatabaseEx.cs" />
+    <Compile Include="DropBoxFileStreamTest.cs" />
+    <Compile Include="DropBoxFolderTest.cs" />
+    <Compile Include="DropBoxBaseTest.cs" />
+    <Compile Include="SharpBoxErrorExceptionTest.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\AppLimit.CloudComputing.oAuth\AppLimit.CloudComputing.oAuth.csproj">
+      <Project>{81C985B7-D30E-4756-A47D-B6441137DCF1}</Project>
+      <Name>AppLimit.CloudComputing.oAuth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppLimit.CloudComputing.SharpBox\AppLimit.CloudComputing.SharpBox.csproj">
+      <Project>{5B779AE9-72B6-4B7E-88B7-47227B92112A}</Project>
+      <Name>AppLimit.CloudComputing.SharpBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

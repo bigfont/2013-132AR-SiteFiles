@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox", "AppLimit.CloudComputing.SharpBox\AppLimit.CloudComputing.SharpBox.csproj", "{5B779AE9-72B6-4B7E-88B7-47227B92112A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox.NUnit", "AppLimit.CloudComputing.SharpBox.NUnit\AppLimit.CloudComputing.SharpBox.NUnit.csproj", "{908238A1-7401-4FC8-90DD-7B35CFCEA6B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox.MockProvider", "AppLimit.CloudComputing.SharpBox.MockProvider\AppLimit.CloudComputing.SharpBox.MockProvider.csproj", "{9A95D1F0-BFCA-4654-90AC-9E80B4930A5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox.ExperimentalProvider", "AppLimit.CloudComputing.SharpBox.ExperimentalProvider\AppLimit.CloudComputing.SharpBox.ExperimentalProvider.csproj", "{15349636-E126-4B4E-9D13-3D0BF2D59B0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Default|Any CPU = Default|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{908238A1-7401-4FC8-90DD-7B35CFCEA6B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{908238A1-7401-4FC8-90DD-7B35CFCEA6B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{908238A1-7401-4FC8-90DD-7B35CFCEA6B4}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{908238A1-7401-4FC8-90DD-7B35CFCEA6B4}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{908238A1-7401-4FC8-90DD-7B35CFCEA6B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{908238A1-7401-4FC8-90DD-7B35CFCEA6B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A95D1F0-BFCA-4654-90AC-9E80B4930A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A95D1F0-BFCA-4654-90AC-9E80B4930A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A95D1F0-BFCA-4654-90AC-9E80B4930A5B}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A95D1F0-BFCA-4654-90AC-9E80B4930A5B}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{9A95D1F0-BFCA-4654-90AC-9E80B4930A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A95D1F0-BFCA-4654-90AC-9E80B4930A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15349636-E126-4B4E-9D13-3D0BF2D59B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15349636-E126-4B4E-9D13-3D0BF2D59B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15349636-E126-4B4E-9D13-3D0BF2D59B0E}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{15349636-E126-4B4E-9D13-3D0BF2D59B0E}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{15349636-E126-4B4E-9D13-3D0BF2D59B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15349636-E126-4B4E-9D13-3D0BF2D59B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = AppLimit.CloudComputing.SharpBox.ClientSample\AppLimit.CloudComputing.SharpBox.ClientSample.csproj
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox2010", "AppLimit.CloudComputing.SharpBox\AppLimit.CloudComputing.SharpBox2010.csproj", "{5B779AE9-72B6-4B7E-88B7-47227B92112A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox.CLISample2010", "AppLimit.CloudComputing.SharpBox.CLISample\AppLimit.CloudComputing.SharpBox.CLISample2010.csproj", "{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.oAuth2010", "AppLimit.CloudComputing.oAuth\AppLimit.CloudComputing.oAuth2010.csproj", "{81C985B7-D30E-4756-A47D-B6441137DCF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLimit.CloudComputing.SharpBox.ClientSample2010", "AppLimit.CloudComputing.SharpBox.ClientSample\AppLimit.CloudComputing.SharpBox.ClientSample2010.csproj", "{9720CCC0-3410-4EE3-82EB-1F2765726DBF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs02
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AppLimit.CloudComputing.SharpBox\\AppLimit.CloudComputing.SharpBox2010.csproj
+		SccProjectName1 = AppLimit.CloudComputing.SharpBox
+		SccLocalPath1 = AppLimit.CloudComputing.SharpBox
+		SccProjectUniqueName2 = AppLimit.CloudComputing.SharpBox.CLISample\\AppLimit.CloudComputing.SharpBox.CLISample2010.csproj
+		SccProjectName2 = AppLimit.CloudComputing.SharpBox.CLISample
+		SccLocalPath2 = AppLimit.CloudComputing.SharpBox.CLISample
+		SccProjectUniqueName3 = AppLimit.CloudComputing.oAuth\\AppLimit.CloudComputing.oAuth2010.csproj
+		SccProjectName3 = AppLimit.CloudComputing.oAuth
+		SccLocalPath3 = AppLimit.CloudComputing.oAuth
+		SccProjectUniqueName4 = AppLimit.CloudComputing.SharpBox.ClientSample\\AppLimit.CloudComputing.SharpBox.ClientSample2010.csproj
+		SccProjectName4 = AppLimit.CloudComputing.SharpBox.ClientSample
+		SccLocalPath4 = AppLimit.CloudComputing.SharpBox.ClientSample
+		SccProjectUniqueName5 = AppLimit.CloudComputing.SharpBox.UI\\AppLimit.CloudComputing.SharpBox2010.UI.csproj
+		SccProjectName5 = AppLimit.CloudComputing.SharpBox.UI
+		SccLocalPath5 = AppLimit.CloudComputing.SharpBox.UI
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5B779AE9-72B6-4B7E-88B7-47227B92112A}.Release|x86.ActiveCfg = Release|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{70F7AD90-E2BE-44FE-BE1C-BAF85227FB21}.Release|x86.ActiveCfg = Release|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{81C985B7-D30E-4756-A47D-B6441137DCF1}.Release|x86.ActiveCfg = Release|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9720CCC0-3410-4EE3-82EB-1F2765726DBF}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

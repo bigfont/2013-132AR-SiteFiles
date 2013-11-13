@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="OrderedTest1" storage="c:\users\dei79\src\applimit\app.limit\projects\sharpbox\trunk\applimit.cloudcomputing.sharpbox.integrationtests\orderedtest1.orderedtest" id="a0c184b0-a389-4ef8-8070-4d7f3c426001" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <Css projectStructure="" iteration="" />
+  <Execution timeOut="2147483647" />
+  <Owners>
+    <Owner name="" />
+  </Owners>
+  <TestLinks>
+    <TestLink id="b4224d2f-a3fc-25f3-d56d-20ed607b449c" name="CreateFolder" storage="bin\debug\applimit.cloudcomputing.sharpbox.integrationtests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="ca6d3e81-7f85-52f8-a8d3-817ca54d2033" name="MoveFolder" storage="bin\debug\applimit.cloudcomputing.sharpbox.integrationtests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="98b1b170-b2a0-250a-a688-a1700e67411c" name="DeleteFolder" storage="bin\debug\applimit.cloudcomputing.sharpbox.integrationtests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>
