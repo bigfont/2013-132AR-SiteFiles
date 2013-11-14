@@ -3,7 +3,7 @@
 <ul>
     @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
     {
-        <li>@file.Name</li>
+        <li><a href="@file.PublicUrl">@file.Name</a></li>
     }
 </ul>
 

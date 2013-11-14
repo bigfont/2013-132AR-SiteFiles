@@ -43,7 +43,7 @@ namespace ArcEconomics.Controllers
 
             files = metadata.Contents
                 .Where<Metadata>(m => !m.Is_Dir)
-                .Select<Metadata, DropBoxFile>((m, d) => new DropBoxFile() { Name = m.Path, PublicUrl = "TODO" })
+                .Select<Metadata, DropBoxFile>((m, d) => new DropBoxFile() { Name = m.Path, PublicUrl = coreApi.GetShare(RootType.Sandbox, m.Path).Url })
                 .ToArray<DropBoxFile>();
 
             return files;
@@ -93,9 +93,7 @@ namespace ArcEconomics.Controllers
 
             PageLink[] allPageLinks = new PageLink[hardPageLinks.Length + directoryPageLinks.Length];
             Array.Copy(hardPageLinks, allPageLinks, hardPageLinks.Length);
-            Array.Copy(directoryPageLinks, 0, allPageLinks, hardPageLinks.Length, directoryPageLinks.Length);
-
-            allPageLinks.FirstOrDefault<PageLink>(pl => pl.ControllerName.Equals(currentController) && pl.ActionName.Equals(currentAction)).IsCurrentPage = true;
+            Array.Copy(directoryPageLinks, 0, allPageLinks, hardPageLinks.Length, directoryPageLinks.Length);            
 
             nav.Pages = allPageLinks;
             nav.CurrentPage = allPageLinks.FirstOrDefault<PageLink>(pl => 
@@ -103,7 +101,7 @@ namespace ArcEconomics.Controllers
                 pl.ActionName.Equals(currentAction) &&
                 pl.Id.Equals(id));
 
-            nav.CurrentPage.IsCurrentPage = true;            
+            nav.CurrentPage.IsCurrentPage = true;
 
             return nav;
         }

@@ -19,7 +19,7 @@ namespace AspDropBox.Core
     {
         private const string ACCOUNT_INFO = "https://api.dropbox.com/1/account/info";
         private const string METADATA = "https://api.dropbox.com/1/metadata/<root>/<path>?list=true";
-        private const string SHARES = "https://api.dropbox.com/1/shares/sandbox";        
+        private const string SHARES = "https://api.dropbox.com/1/shares/<root>/<path>";        
         private string bearerCode;
         private string authHeader { get { return "Bearer " + bearerCode; } }
 
@@ -28,12 +28,18 @@ namespace AspDropBox.Core
             this.bearerCode = bearerCode;
         }
 
-        public Share GetShare()
+        public Share GetShare(RootType rootType, string path = "")
         {
             string json;
+            string url;
             Share shares;
 
-            json = RequestResponse(SHARES, authHeader);
+            // update the url
+            url = SHARES
+                .Replace("<root>", rootType.ToString().ToLower())
+                .Replace("<path>", path.ToLower());
+
+            json = RequestResponse(url, authHeader);
             shares = JsonConvert.DeserializeObject<Share>(json);
 
             return shares;
@@ -44,7 +50,7 @@ namespace AspDropBox.Core
             string url;
             Metadata metadata;
 
-            // update the root
+            // update the url
             url = METADATA
                 .Replace("<root>", rootType.ToString().ToLower())
                 .Replace("<path>", path.ToLower());                
