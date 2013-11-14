@@ -4,27 +4,65 @@
 
     @{
 
-        int fileCount = Model.CurrentDropBoxDirectory.ChildFiles.Count;
-        int dirCount = Model.CurrentDropBoxDirectory.ChildDirectories.Count;
+        int fileCount = Model.CurrentDropBoxDirectory.ChildFiles.Count();
+        int dirCount = Model.CurrentDropBoxDirectory.ChildDirectories.Count();
 
     }
 
-    <ul class="list-unstyled">
-        @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
-        {
-            <li>
-                @MyHelpers.FileActionLink(@file.Name, @file.Path)
-            </li>
-        }
-    </ul>
 
-    <ul class="list-unstyled">
-        @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
-        {
-            <li>
-                @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
-            </li>
-        }
-    </ul>
+
+    @if (fileCount + dirCount == 0)
+    {
+        <p>This folder is empty.</p>
+    }
+    else
+    {
+        <h2>Files</h2>
+
+        <div class="well">
+
+            @if (fileCount == 0)
+            {
+            <p><span class="glyphicon glyphicon-file"></span>There are no files.</p>
+            }
+            else
+            {
+            <ul class="list-unstyled">
+                @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
+                {
+                    <li>
+                        @MyHelpers.FileActionLink(@file.Name, @file.Path)
+                    </li>
+                }
+            </ul>
+            }
+
+        </div>
+
+        <h2>Folders</h2>
+
+        <div class="well">            
+
+            @if (dirCount == 0)
+            {
+            <p><span class="glyphicon glyphicon-folder"></span>There are no sub-folders.</p>
+            }
+            else
+            {
+            <ul class="list-unstyled">
+                @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
+                {
+                    <li>
+                        @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
+                    </li>
+                }
+            </ul>
+            }
+        </div>
+
+
+    }
+
+
 
 </section>
