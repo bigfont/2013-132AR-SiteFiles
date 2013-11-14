@@ -1,0 +1,19 @@
+﻿@model ArcEconomics.ViewModels.ViewModelBase
+
+@if (Model.SiteNavigation.BreadCrumb != null)
+{
+    <ol class="breadcrumb">
+        @foreach (var link in Model.SiteNavigation.BreadCrumb)
+        {
+            // HACK This could be more DRY.
+            if (link.Path == null || link.Path.Length == 0)
+            {
+                <li>@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName })</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName, path = link.Path })</li>
+            }
+        }
+    </ol>
+}

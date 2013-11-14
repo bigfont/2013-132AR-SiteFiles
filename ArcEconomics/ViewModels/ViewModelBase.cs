@@ -10,7 +10,7 @@ namespace ArcEconomics.ViewModels
     {
         public ViewModelBase()
         {
-            RootDropBoxDirectory = new DropBoxDirectory() { Name = "Root" };
+            RootDropBoxDirectory = new DropBoxDirectory() { Path = "Root" };  // HACK Is this really Root?
         }
         public SiteNavigation SiteNavigation;
         public DropBoxDirectory RootDropBoxDirectory;

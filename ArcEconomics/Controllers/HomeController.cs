@@ -32,7 +32,7 @@ namespace ArcEconomics.Controllers
 
             dirs = metadata.Contents
                 .Where<Metadata>(m => m.Is_Dir)
-                .Select<Metadata, DropBoxDirectory>((m, d) => new DropBoxDirectory() { Name = m.Path, ChildDirectories = null })
+                .Select<Metadata, DropBoxDirectory>((m, d) => new DropBoxDirectory() { Path = m.Path, ChildDirectories = null })
                 .ToArray<DropBoxDirectory>();
 
             return dirs;
@@ -43,7 +43,7 @@ namespace ArcEconomics.Controllers
 
             files = metadata.Contents
                 .Where<Metadata>(m => !m.Is_Dir)
-                .Select<Metadata, DropBoxFile>((m, d) => new DropBoxFile() { Name = m.Path, PublicUrl = coreApi.GetShare(RootType.Sandbox, m.Path).Url })
+                .Select<Metadata, DropBoxFile>((m, d) => new DropBoxFile() { Path = m.Path, PublicUrl = coreApi.GetShare(RootType.Sandbox, m.Path).Url })
                 .ToArray<DropBoxFile>();
 
             return files;
@@ -61,7 +61,7 @@ namespace ArcEconomics.Controllers
 
             // instantiate the current dir
             dir = new DropBoxDirectory();
-            dir.Name = metadata.Path;
+            dir.Path = metadata.Path;
             dir.ChildDirectories = this.GetDirectoriesFromMetadata(metadata);
             dir.ChildFiles = this.GetFilesFromMetadata(metadata);
 
@@ -70,13 +70,62 @@ namespace ArcEconomics.Controllers
     }
     public class HomeController : Controller
     {
-        private SiteNavigation GetSiteNavigation(string id = "")
+        private SiteNavigation GetSiteNavigation(DropBoxDirectory currentDropBoxDir = null)
         {
             SiteNavigation nav = new SiteNavigation();
 
-            string currentAction = this.ControllerContext.RouteData.Values["action"].ToString();
-            string currentController = this.ControllerContext.RouteData.Values["controller"].ToString();
+            nav.TopLevelPages = GetTopLevelPages();
 
+            nav.CurrentPage = GetCurrentPage(nav.TopLevelPages, currentDropBoxDir);
+
+            nav.BreadCrumb = GetBreadCrumb(nav.CurrentPage);
+
+            return nav;
+        }
+
+        private PageLink GetCurrentPage(PageLink[] allTopLevelPageLinks, DropBoxDirectory currentDropBoxDir)
+        {
+            PageLink currentPage;
+            string currentAction;
+            string currentController;
+
+            currentAction = this.ControllerContext.RouteData.Values["action"].ToString();
+            currentController = this.ControllerContext.RouteData.Values["controller"].ToString();
+
+            currentPage = allTopLevelPageLinks.FirstOrDefault<PageLink>(pl =>
+                pl.ControllerName.Equals(currentController) &&
+                pl.ActionName.Equals(currentAction) &&
+                (currentDropBoxDir == null || pl.Path.Equals(currentDropBoxDir.Path)));
+
+            if (currentPage == null)
+            {
+                currentPage = new PageLink(currentDropBoxDir.Name, "Directory", "Home", currentDropBoxDir.Path);
+
+            }
+
+            return currentPage;
+        }
+
+        private PageLink[] GetBreadCrumb(PageLink currentPage)
+        {
+            PageLink[] breadcrumb;
+
+            string[] directoryNames = currentPage.Path.Split('/').Where<string>(s => s.Length > 0).ToArray<string>();
+            breadcrumb = new PageLink[directoryNames.Length];
+
+            // HACK I don't know how to do this in LINQ
+            string path = String.Empty;
+            for (int i = 0; i < directoryNames.Length; ++i)
+            {
+                path += "/" + directoryNames[i];
+                breadcrumb[i] = new PageLink(directoryNames[i], "Directory", "Home", path);
+            }
+
+            return breadcrumb;
+        }
+
+        private PageLink[] GetTopLevelPages()
+        {
             PageLink[] hardPageLinks = new PageLink[] {
             
                 new PageLink("Home", "Index", "Home"),
@@ -85,31 +134,22 @@ namespace ArcEconomics.Controllers
                 
             };
 
-            // TODO Cache the dropbox meta for performance reasons else where query dropbox on every page load.
             DropBoxService box = new DropBoxService();
             PageLink[] directoryPageLinks = box.GetRootDirectory()
-                .ChildDirectories.Select<DropBoxDirectory, PageLink>((d, pl) => new PageLink(d.Name, "Directory", "Home", d.Name))
+                .ChildDirectories.Select<DropBoxDirectory, PageLink>((d, pl) => new PageLink(d.Name, "Directory", "Home", d.Path))
                 .ToArray<PageLink>();
 
-            PageLink[] allPageLinks = new PageLink[hardPageLinks.Length + directoryPageLinks.Length];
-            Array.Copy(hardPageLinks, allPageLinks, hardPageLinks.Length);
-            Array.Copy(directoryPageLinks, 0, allPageLinks, hardPageLinks.Length, directoryPageLinks.Length);            
+            PageLink[] allTopLevelPageLinks = new PageLink[hardPageLinks.Length + directoryPageLinks.Length];
+            Array.Copy(hardPageLinks, allTopLevelPageLinks, hardPageLinks.Length);
+            Array.Copy(directoryPageLinks, 0, allTopLevelPageLinks, hardPageLinks.Length, directoryPageLinks.Length);
 
-            nav.Pages = allPageLinks;
-            nav.CurrentPage = allPageLinks.FirstOrDefault<PageLink>(pl => 
-                pl.ControllerName.Equals(currentController) && 
-                pl.ActionName.Equals(currentAction) &&
-                pl.Id.Equals(id));
-
-            nav.CurrentPage.IsCurrentPage = true;
-
-            return nav;
+            return allTopLevelPageLinks;
         }
 
         public ActionResult Index()
         {
             HomeViewModel model;
-            DropBoxService box;                  
+            DropBoxService box;
 
             box = new DropBoxService();
 
@@ -138,7 +178,7 @@ namespace ArcEconomics.Controllers
             return View(model);
         }
 
-        public ActionResult Directory(string id)
+        public ActionResult Directory(string path)
         {
             DirectoryViewModel model;
             DropBoxService box;
@@ -147,9 +187,9 @@ namespace ArcEconomics.Controllers
 
             // populate the root dir
             model = new DirectoryViewModel();
-            model.RootDropBoxDirectory = box.GetRootDirectory();            
-            model.CurrentDropBoxDirectory = box.GetDirectoryByName(id);
-            model.SiteNavigation = GetSiteNavigation(id);
+            model.RootDropBoxDirectory = box.GetRootDirectory();
+            model.CurrentDropBoxDirectory = box.GetDirectoryByName(path);
+            model.SiteNavigation = GetSiteNavigation(model.CurrentDropBoxDirectory);
 
             // return view   
             return View(model);

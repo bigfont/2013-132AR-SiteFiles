@@ -6,23 +6,23 @@ using System.Web;
 namespace ArcEconomics.Models
 {
     public class PageLink
-    { 
-        public PageLink(string linkText, string actionName, string controllerName, string id = "")
-        {            
+    {
+        public PageLink(string linkText, string actionName, string controllerName, string path = "")
+        {
             this.LinkText = linkText;
             this.ActionName = actionName;
             this.ControllerName = controllerName;
-            this.Id = id;
+            this.Path = path;
         }
         public string ActionName;
         public string ControllerName;
         public string LinkText;
-        public string Id;
-        public bool IsCurrentPage;
+        public string Path;
     }
     public class SiteNavigation
     {
         public PageLink CurrentPage;
-        public PageLink[] Pages;
+        public PageLink[] BreadCrumb;
+        public PageLink[] TopLevelPages;
     }
 }

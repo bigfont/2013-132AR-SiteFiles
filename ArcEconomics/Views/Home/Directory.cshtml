@@ -6,10 +6,9 @@
         <li><a href="@file.PublicUrl">@file.Name</a></li>
     }
 </ul>
-
 <ul>
     @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
     {
-        <li>@dir.Name</li>
+        <li>@Html.ActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path })</li>
     }
 </ul>

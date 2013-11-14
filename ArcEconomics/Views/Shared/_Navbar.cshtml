@@ -3,29 +3,28 @@
 <nav class="navbar navbar-default" role="navigation">
 
     <div class="collapse navbar-collapse">
-
         <ul class="nav navbar-nav">
 
-            @foreach (ArcEconomics.Models.PageLink link in Model.SiteNavigation.Pages)
+            @foreach (ArcEconomics.Models.PageLink link in Model.SiteNavigation.TopLevelPages)
             {
-                string cssClass;
-                if(link.IsCurrentPage)
-                {
-                    cssClass = "active";
-                }
-                else
-                {
-                    cssClass = string.Empty;
-                }
-                
+                string cssClass = String.Empty;
+                ////if(link.iscurrenttoplevelpage)
+                ////{
+                ////    cssclass = "active";
+                ////}
+                ////else
+                ////{
+                ////    cssclass = string.empty;
+                ////}
+
                 // HACK This could be more DRY.
-                if(link.Id == null || link.Id.Length == 0)
+                if (link.Path == null || link.Path.Length == 0)
                 {
                     <li class="@cssClass">@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName })</li>
                 }
                 else
                 {
-                    <li class="@cssClass">@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName, id = link.Id })</li>
+                    <li class="@cssClass">@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName, path = link.Path })</li>
                 }
             }
 

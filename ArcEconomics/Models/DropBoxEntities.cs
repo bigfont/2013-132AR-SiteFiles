@@ -6,23 +6,21 @@ using System.Web;
 namespace ArcEconomics.Models
 {
     public class DropBoxEntity
-    {
-        private string name;
+    {        
         public string Name
         {
             get
             {
+                string name; 
+                int index;
+
+                index = this.Path.LastIndexOf("/");
+                name = this.Path.Substring(index + 1);
+
                 return name;
             }
-            set
-            {
-                while(value.IndexOf("/") == 0)
-                { 
-                    value = value.Remove(0, 1);
-                }
-                name = value;
-            }
         }
+        public string Path;
 
     }
     public class DropBoxFile : DropBoxEntity
