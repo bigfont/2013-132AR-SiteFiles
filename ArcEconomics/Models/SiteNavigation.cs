@@ -7,8 +7,8 @@ namespace ArcEconomics.Models
 {
     public class PageLink
     { 
-        public PageLink(string linkText, string actionName, string controllerName, string id = null)
-        { 
+        public PageLink(string linkText, string actionName, string controllerName, string id = "")
+        {            
             this.LinkText = linkText;
             this.ActionName = actionName;
             this.ControllerName = controllerName;
@@ -22,6 +22,7 @@ namespace ArcEconomics.Models
     }
     public class SiteNavigation
     {
+        public PageLink CurrentPage;
         public PageLink[] Pages;
     }
 }

@@ -70,8 +70,13 @@ namespace ArcEconomics.Controllers
     }
     public class HomeController : Controller
     {
-        private PageLink[] GetPages(string currentController, string currentAction)
+        private SiteNavigation GetSiteNavigation(string id = "")
         {
+            SiteNavigation nav = new SiteNavigation();
+
+            string currentAction = this.ControllerContext.RouteData.Values["action"].ToString();
+            string currentController = this.ControllerContext.RouteData.Values["controller"].ToString();
+
             PageLink[] hardPageLinks = new PageLink[] {
             
                 new PageLink("Home", "Index", "Home"),
@@ -80,6 +85,7 @@ namespace ArcEconomics.Controllers
                 
             };
 
+            // TODO Cache the dropbox meta for performance reasons else where query dropbox on every page load.
             DropBoxService box = new DropBoxService();
             PageLink[] directoryPageLinks = box.GetRootDirectory()
                 .ChildDirectories.Select<DropBoxDirectory, PageLink>((d, pl) => new PageLink(d.Name, "Directory", "Home", d.Name))
@@ -91,22 +97,29 @@ namespace ArcEconomics.Controllers
 
             allPageLinks.FirstOrDefault<PageLink>(pl => pl.ControllerName.Equals(currentController) && pl.ActionName.Equals(currentAction)).IsCurrentPage = true;
 
-            return allPageLinks;
+            nav.Pages = allPageLinks;
+            nav.CurrentPage = allPageLinks.FirstOrDefault<PageLink>(pl => 
+                pl.ControllerName.Equals(currentController) && 
+                pl.ActionName.Equals(currentAction) &&
+                pl.Id.Equals(id));
+
+            nav.CurrentPage.IsCurrentPage = true;            
+
+            return nav;
         }
 
         public ActionResult Index()
         {
             HomeViewModel model;
-            DropBoxService box;
-            PageLink currentPage;            
+            DropBoxService box;                  
 
             box = new DropBoxService();
 
             // populate viewmodel
             model = new HomeViewModel();
             model.RootDropBoxDirectory = box.GetRootDirectory();
-            model.CurrentDropBoxDirectory = box.GetRootDirectory();
-            model.SiteNavigation = new SiteNavigation() { Pages = GetPages("Home", "Index") };
+            model.CurrentDropBoxDirectory = null;
+            model.SiteNavigation = GetSiteNavigation();
 
             // return view      
             return View(model);
@@ -121,6 +134,8 @@ namespace ArcEconomics.Controllers
 
             model = new ViewModelBase();
             model.RootDropBoxDirectory = box.GetRootDirectory();
+            model.CurrentDropBoxDirectory = null;
+            model.SiteNavigation = GetSiteNavigation();
 
             return View(model);
         }
@@ -134,10 +149,9 @@ namespace ArcEconomics.Controllers
 
             // populate the root dir
             model = new DirectoryViewModel();
-            model.RootDropBoxDirectory = box.GetRootDirectory();
-
-            // populate the current dir
+            model.RootDropBoxDirectory = box.GetRootDirectory();            
             model.CurrentDropBoxDirectory = box.GetDirectoryByName(id);
+            model.SiteNavigation = GetSiteNavigation(id);
 
             // return view   
             return View(model);
@@ -151,7 +165,10 @@ namespace ArcEconomics.Controllers
             box = new DropBoxService();
 
             model = new ViewModelBase();
+
             model.RootDropBoxDirectory = box.GetRootDirectory();
+            model.CurrentDropBoxDirectory = null;
+            model.SiteNavigation = GetSiteNavigation();
 
             return View(model);
         }

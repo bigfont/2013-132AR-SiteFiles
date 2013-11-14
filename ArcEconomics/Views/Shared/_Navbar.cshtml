@@ -19,13 +19,13 @@
                 }
                 
                 // HACK This could be more DRY.
-                if(link.Id == null)
+                if(link.Id == null || link.Id.Length == 0)
                 {
-                    <li>@Html.ActionLink(link.LinkText, link.ActionName, link.ControllerName, new { @class = cssClass })</li>
-                }                
+                    <li class="@cssClass">@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName })</li>
+                }
                 else
                 {
-                    <li>@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName, id = link.Id }, new { @class = cssClass })</li>
+                    <li class="@cssClass">@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName, id = link.Id })</li>
                 }
             }
 
