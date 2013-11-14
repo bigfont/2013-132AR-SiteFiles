@@ -13,18 +13,18 @@ namespace ArcEconomics.Controllers
 {
     public class DropBoxService
     {
-        private DropBoxCoreApi coreApi;        
+        private DropBoxCoreApi coreApi;
         public DropBoxService()
-        { 
+        {
             coreApi = GetCoreApi();
         }
         private DropBoxCoreApi GetCoreApi()
         {
-      
-                DropBoxCoreApi api;
-                api = new DropBoxCoreApi(ConfigurationManager.AppSettings["DropBoxBearerCode"]);
-                return api;
-            
+
+            DropBoxCoreApi api;
+            api = new DropBoxCoreApi(ConfigurationManager.AppSettings["DropBoxBearerCode"]);
+            return api;
+
         }
         public DropBoxDirectory[] GetDirectoriesFromMetadata(Metadata metadata)
         {
@@ -70,16 +70,43 @@ namespace ArcEconomics.Controllers
     }
     public class HomeController : Controller
     {
+        private PageLink[] GetPages(string currentController, string currentAction)
+        {
+            PageLink[] hardPageLinks = new PageLink[] {
+            
+                new PageLink("Home", "Index", "Home"),
+                new PageLink("About", "About", "Home"),
+                new PageLink("Contact", "Contact", "Home")
+                
+            };
+
+            DropBoxService box = new DropBoxService();
+            PageLink[] directoryPageLinks = box.GetRootDirectory()
+                .ChildDirectories.Select<DropBoxDirectory, PageLink>((d, pl) => new PageLink(d.Name, "Directory", "Home", d.Name))
+                .ToArray<PageLink>();
+
+            PageLink[] allPageLinks = new PageLink[hardPageLinks.Length + directoryPageLinks.Length];
+            Array.Copy(hardPageLinks, allPageLinks, hardPageLinks.Length);
+            Array.Copy(directoryPageLinks, 0, allPageLinks, hardPageLinks.Length, directoryPageLinks.Length);
+
+            allPageLinks.FirstOrDefault<PageLink>(pl => pl.ControllerName.Equals(currentController) && pl.ActionName.Equals(currentAction)).IsCurrentPage = true;
+
+            return allPageLinks;
+        }
+
         public ActionResult Index()
         {
             HomeViewModel model;
             DropBoxService box;
-                                    
+            PageLink currentPage;            
+
             box = new DropBoxService();
 
             // populate viewmodel
             model = new HomeViewModel();
             model.RootDropBoxDirectory = box.GetRootDirectory();
+            model.CurrentDropBoxDirectory = box.GetRootDirectory();
+            model.SiteNavigation = new SiteNavigation() { Pages = GetPages("Home", "Index") };
 
             // return view      
             return View(model);
@@ -101,7 +128,7 @@ namespace ArcEconomics.Controllers
         public ActionResult Directory(string id)
         {
             DirectoryViewModel model;
-            DropBoxService box;            
+            DropBoxService box;
 
             box = new DropBoxService();
 

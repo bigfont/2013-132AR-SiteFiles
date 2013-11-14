@@ -37,7 +37,7 @@
 
         <header class="row">
 
-            @Html.Partial("_Navbar", @Model.RootDropBoxDirectory)
+            @Html.Partial("_Navbar", @Model)
 
             @Html.Partial("_Header")
 
@@ -52,6 +52,8 @@
             </aside>
 
             <section class="col-lg-9">
+
+                <h1>@ViewBag.Title</h1>
 
                 @RenderBody()
 

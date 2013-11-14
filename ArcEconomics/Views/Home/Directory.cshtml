@@ -1,7 +1,5 @@
 ﻿@model ArcEconomics.ViewModels.DirectoryViewModel
 
-<h2>@Model.CurrentDropBoxDirectory.Name</h2>
-
 <ul>
     @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
     {

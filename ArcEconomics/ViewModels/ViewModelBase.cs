@@ -12,6 +12,7 @@ namespace ArcEconomics.ViewModels
         {
             RootDropBoxDirectory = new DropBoxDirectory() { Name = "Root" };
         }
+        public SiteNavigation SiteNavigation;
         public DropBoxDirectory RootDropBoxDirectory;
         public DropBoxDirectory CurrentDropBoxDirectory;
     }
