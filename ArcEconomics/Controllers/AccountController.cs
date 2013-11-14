@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using ArcEconomics.Filters;
 using ArcEconomics.Models;
+using ArcEconomics.Services;
 
 namespace ArcEconomics.Controllers
 {
@@ -23,8 +24,21 @@ namespace ArcEconomics.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            LoginModel model;
+            DropBoxService box;
+            SiteNavigationService nav;
+
+            box = new DropBoxService();
+            nav = new SiteNavigationService(this.ControllerContext);
+
+            // populate viewmodel
+            model = new LoginModel();
+            model.RootDropBoxDirectory = box.GetRootDirectory();
+            model.CurrentDropBoxDirectory = null;
+            model.SiteNavigation = nav.GetSiteNavigation();
+
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return View(model);
         }
 
         //
@@ -63,7 +77,20 @@ namespace ArcEconomics.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            RegisterModel model;
+            DropBoxService box;
+            SiteNavigationService nav;
+
+            box = new DropBoxService();
+            nav = new SiteNavigationService(this.ControllerContext);
+
+            // populate viewmodel
+            model = new RegisterModel();
+            model.RootDropBoxDirectory = box.GetRootDirectory();
+            model.CurrentDropBoxDirectory = null;
+            model.SiteNavigation = nav.GetSiteNavigation();
+
+            return View(model);
         }
 
         //

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArcEconomics.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -55,7 +56,7 @@ namespace ArcEconomics.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class LoginModel
+    public class LoginModel : ViewModelBase
     {
         [Required]
         [Display(Name = "User name")]
@@ -70,7 +71,7 @@ namespace ArcEconomics.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterModel
+    public class RegisterModel : ViewModelBase
     {
         [Required]
         [Display(Name = "User name")]
