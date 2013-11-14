@@ -2,6 +2,13 @@
 
 <section id="dropbox-explorer" class="well">
 
+    @{
+
+        int fileCount = Model.CurrentDropBoxDirectory.ChildFiles.Count;
+        int dirCount = Model.CurrentDropBoxDirectory.ChildDirectories.Count;
+
+    }
+
     <ul class="list-unstyled">
         @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
         {

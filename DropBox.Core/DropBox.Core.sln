@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcEconomics", "..\ArcEcono
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dropbox.Core.Tests", "Dropbox.Core.Tests\Dropbox.Core.Tests.csproj", "{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication1", "..\MvcApplication1\MvcApplication1.csproj", "{96A401B9-044E-4598-B269-B36C5F9F82B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96A401B9-044E-4598-B269-B36C5F9F82B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96A401B9-044E-4598-B269-B36C5F9F82B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96A401B9-044E-4598-B269-B36C5F9F82B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96A401B9-044E-4598-B269-B36C5F9F82B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
