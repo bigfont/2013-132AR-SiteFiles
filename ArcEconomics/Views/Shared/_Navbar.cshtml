@@ -1,0 +1,18 @@
+﻿@model ArcEconomics.Models.DropBoxDirectory
+
+<nav class="navbar navbar-default" role="navigation">
+
+    <div class="collapse navbar-collapse">
+
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.ChildDirectories)
+            {
+                <li>@Html.ActionLink(dir.Name, "Directory", new { id = dir.Name })</li>
+            }
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+        </ul>
+    </div>
+</nav>

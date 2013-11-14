@@ -50,19 +50,6 @@ namespace ArcEconomics.Controllers
         }
         public DropBoxDirectory GetRootDirectory()
         {
-            ////Metadata metadata;
-            ////DropBoxDirectory rootDir;
-
-            ////metadata = coreApi.GetMetadata(RootType.Sandbox);
-
-            ////// instantiate the drop box root dir
-            ////rootDir = new DropBoxDirectory();
-            ////rootDir.Name = metadata.Path;
-            ////rootDir.ChildDirectories = this.GetDirectoriesFromMetadata(metadata);
-            ////rootDir.ChildFiles = this.GetFilesFromMetadata(metadata);
-
-            ////return rootDir;
-
             return GetDirectoryByName(String.Empty);
         }
         public DropBoxDirectory GetDirectoryByName(string directoryName)
@@ -100,9 +87,15 @@ namespace ArcEconomics.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewModelBase model;
+            DropBoxService box;
 
-            return View();
+            box = new DropBoxService();
+
+            model = new ViewModelBase();
+            model.RootDropBoxDirectory = box.GetRootDirectory();
+
+            return View(model);
         }
 
         public ActionResult Directory(string id)
@@ -125,9 +118,15 @@ namespace ArcEconomics.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewModelBase model;
+            DropBoxService box;
 
-            return View();
+            box = new DropBoxService();
+
+            model = new ViewModelBase();
+            model.RootDropBoxDirectory = box.GetRootDirectory();
+
+            return View(model);
         }
     }
 }
