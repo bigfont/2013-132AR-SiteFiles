@@ -1,14 +1,23 @@
 ﻿@model ArcEconomics.ViewModels.DirectoryViewModel
 
-<ul>
-    @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
-    {
-        <li><a href="@file.PublicUrl">@file.Name</a></li>
-    }
-</ul>
-<ul>
-    @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
-    {
-        <li>@Html.ActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path })</li>
-    }
-</ul>
+<section id="dropbox-explorer" class="well">
+
+    <ul class="list-unstyled">
+        @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
+        {
+            <li>
+                @MyHelpers.FileActionLink(@file.Name, @file.Path)
+            </li>
+        }
+    </ul>
+
+    <ul class="list-unstyled">
+        @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
+        {
+            <li>
+                @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
+            </li>
+        }
+    </ul>
+
+</section>

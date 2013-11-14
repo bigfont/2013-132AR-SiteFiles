@@ -68,9 +68,14 @@ namespace ArcEconomics.Controllers
             return dir;
         }
     }
-    public class HomeController : Controller
+    public class SiteNavigationService
     {
-        private SiteNavigation GetSiteNavigation(DropBoxDirectory currentDropBoxDir = null)
+        private ControllerContext ControllerContext;
+        public SiteNavigationService(ControllerContext controllerContext)
+        {         
+            this.ControllerContext = controllerContext;
+        }
+        public SiteNavigation GetSiteNavigation(DropBoxDirectory currentDropBoxDir = null)
         {
             SiteNavigation nav = new SiteNavigation();
 
@@ -82,8 +87,7 @@ namespace ArcEconomics.Controllers
 
             return nav;
         }
-
-        private PageLink GetCurrentPage(PageLink[] allTopLevelPageLinks, DropBoxDirectory currentDropBoxDir)
+        public PageLink GetCurrentPage(PageLink[] allTopLevelPageLinks, DropBoxDirectory currentDropBoxDir)
         {
             PageLink currentPage;
             string currentAction;
@@ -105,26 +109,33 @@ namespace ArcEconomics.Controllers
 
             return currentPage;
         }
-
-        private PageLink[] GetBreadCrumb(PageLink currentPage)
+        public PageLink[] GetBreadCrumb(PageLink currentPage)
         {
-            PageLink[] breadcrumb;
+            PageLink[] breadcrumb;     
+            
+            breadcrumb = null;       
 
-            string[] directoryNames = currentPage.Path.Split('/').Where<string>(s => s.Length > 0).ToArray<string>();
-            breadcrumb = new PageLink[directoryNames.Length];
-
-            // HACK I don't know how to do this in LINQ
-            string path = String.Empty;
-            for (int i = 0; i < directoryNames.Length; ++i)
+            if(currentPage.Path.IndexOf('/') >= 0)
             {
-                path += "/" + directoryNames[i];
-                breadcrumb[i] = new PageLink(directoryNames[i], "Directory", "Home", path);
+                string[] directoryNames = currentPage.Path.Split('/').Where<string>(s => s.Length > 0).ToArray<string>();
+                breadcrumb = new PageLink[directoryNames.Length];
+
+                // HACK I don't know how to do this in LINQ
+                string path = String.Empty;
+                for (int i = 0; i < directoryNames.Length; ++i)
+                {
+                    path += "/" + directoryNames[i];
+                    breadcrumb[i] = new PageLink(directoryNames[i], "Directory", "Home", path);
+                }
+            }
+            else
+            {             
+                breadcrumb = new PageLink[] { currentPage };
             }
 
             return breadcrumb;
         }
-
-        private PageLink[] GetTopLevelPages()
+        public PageLink[] GetTopLevelPages()
         {
             PageLink[] hardPageLinks = new PageLink[] {
             
@@ -145,19 +156,24 @@ namespace ArcEconomics.Controllers
 
             return allTopLevelPageLinks;
         }
-
+    }
+    public class HomeController : Controller
+    {        
         public ActionResult Index()
         {
             HomeViewModel model;
             DropBoxService box;
+            SiteNavigationService nav;
 
             box = new DropBoxService();
+            nav = new SiteNavigationService(this.ControllerContext);
+
 
             // populate viewmodel
             model = new HomeViewModel();
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = null;
-            model.SiteNavigation = GetSiteNavigation();
+            model.SiteNavigation = nav.GetSiteNavigation();
 
             // return view      
             return View(model);
@@ -167,13 +183,15 @@ namespace ArcEconomics.Controllers
         {
             ViewModelBase model;
             DropBoxService box;
+            SiteNavigationService nav;
 
             box = new DropBoxService();
+            nav = new SiteNavigationService(this.ControllerContext);
 
             model = new ViewModelBase();
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = null;
-            model.SiteNavigation = GetSiteNavigation();
+            model.SiteNavigation = nav.GetSiteNavigation();
 
             return View(model);
         }
@@ -182,14 +200,16 @@ namespace ArcEconomics.Controllers
         {
             DirectoryViewModel model;
             DropBoxService box;
+            SiteNavigationService nav;
 
             box = new DropBoxService();
+            nav = new SiteNavigationService(this.ControllerContext);
 
             // populate the root dir
             model = new DirectoryViewModel();
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = box.GetDirectoryByName(path);
-            model.SiteNavigation = GetSiteNavigation(model.CurrentDropBoxDirectory);
+            model.SiteNavigation = nav.GetSiteNavigation(model.CurrentDropBoxDirectory);
 
             // return view   
             return View(model);
@@ -199,14 +219,16 @@ namespace ArcEconomics.Controllers
         {
             ViewModelBase model;
             DropBoxService box;
+            SiteNavigationService nav;
 
             box = new DropBoxService();
+            nav = new SiteNavigationService(this.ControllerContext);
 
             model = new ViewModelBase();
 
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = null;
-            model.SiteNavigation = GetSiteNavigation();
+            model.SiteNavigation = nav.GetSiteNavigation();
 
             return View(model);
         }

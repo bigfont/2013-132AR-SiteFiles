@@ -1,0 +1,13 @@
+﻿@helper DirectoryActionLink(string linkText, string actionName, object routeValues, System.Web.Mvc.WebViewPage page)
+{
+    <a href="@page.Url.Action(actionName, routeValues)">
+        <span class="glyphicon glyphicon-folder-close"></span>@linkText
+    </a>
+}
+
+@helper FileActionLink(string linkText, string publicUrl)
+{
+    <a href="@publicUrl">
+        <span class="glyphicon glyphicon-file"></span>@linkText
+    </a>
+}
