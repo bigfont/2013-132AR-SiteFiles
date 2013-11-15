@@ -31,7 +31,7 @@
                 @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
                 {
                     <li>
-                        @MyHelpers.FileActionLink(@file.Name, @file.Path)
+                        @MyHelpers.FileActionLink(@file.Name, @file.PublicUrl)
                     </li>
                 }
             </ul>
