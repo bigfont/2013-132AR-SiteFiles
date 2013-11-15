@@ -9,6 +9,7 @@ namespace AspDropBox.Core.Models
     public class Metadata
     {
         public string Size;
+        public string Hash;
         public string Rev;
         public string Thumb_Exists;
         public string Bytes;

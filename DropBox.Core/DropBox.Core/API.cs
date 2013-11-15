@@ -11,20 +11,20 @@ using System.Threading.Tasks;
 namespace AspDropBox.Core
 {
     public enum RootType
-    { 
-        Sandbox, 
+    {
+        Sandbox,
         DropBox
     }
     public class DropBoxCoreApi
     {
         private const string ACCOUNT_INFO = "https://api.dropbox.com/1/account/info";
         private const string METADATA = "https://api.dropbox.com/1/metadata/<root>/<path>?list=true";
-        private const string SHARES = "https://api.dropbox.com/1/shares/<root>/<path>";        
+        private const string SHARES = "https://api.dropbox.com/1/shares/<root>/<path>";
         private string bearerCode;
         private string authHeader { get { return "Bearer " + bearerCode; } }
 
         public DropBoxCoreApi(string bearerCode)
-        {            
+        {
             this.bearerCode = bearerCode;
         }
 
@@ -44,7 +44,7 @@ namespace AspDropBox.Core
 
             return shares;
         }
-        public Metadata GetMetadata(RootType rootType, string path = "")
+        public Metadata GetMetadata(RootType rootType, string path = "", string hash = "")
         {
             string json;
             string url;
@@ -53,12 +53,30 @@ namespace AspDropBox.Core
             // update the url
             url = METADATA
                 .Replace("<root>", rootType.ToString().ToLower())
-                .Replace("<path>", path.ToLower());                
+                .Replace("<path>", path.ToLower());
 
-            json = RequestResponse(url, authHeader);
-            metadata = JsonConvert.DeserializeObject<Metadata>(json);
+            if (hash.Length > 0)
+            {
+                url += string.Format("&hash={0}", hash);
+            }
+
+            try
+            {
+                json = RequestResponse(url, authHeader);
+                metadata = JsonConvert.DeserializeObject<Metadata>(json);
+            }
+            catch (WebException)
+            {
+                // probably 301 unmodified
+                metadata = GetMetadataFromLocalStore();
+            }
 
             return metadata;
+        }
+
+        private Metadata GetMetadataFromLocalStore()
+        {
+            return new Metadata() { Contents = new Metadata[0] };
         }
         public AccountInfo GetAccountInfo()
         {
@@ -80,8 +98,9 @@ namespace AspDropBox.Core
             request.Headers.Add(HttpRequestHeader.Authorization, authHeader);
             request.ContentType = "application/json";
 
-            response = request.GetResponse();
+            text = null;
 
+            response = request.GetResponse();
             using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
                 text = reader.ReadToEnd();
