@@ -15,6 +15,8 @@
         var editor_data;
         var source;
         var jqxhr;
+        var status;
+        var saved;
 
         action_name = $("#actionName").val();
 
@@ -33,12 +35,27 @@
             type: "POST"
         })
             .done(function (data) {
-                console.log(data.responseText);
+                
+                status = data.status;
+
             })
             .fail(function (data) {
-                console.log(data.responseText);
+
+                status = data.status;
+
             })
             .always(function () {
+
+                if (status == 200) {
+                    
+                    saved = $('<div id="editor1-saved" class="alert alert-success alert-dismissable">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + 
+                            '<strong>Saved!</strong> Your content is safe with us.' + 
+                            '</div>');
+
+                    $("body").prepend(saved);
+
+                }
 
             });
 
