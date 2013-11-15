@@ -80,5 +80,33 @@
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
+
+    @if (WebSecurity.IsAuthenticated)
+    {
+        <script src="~/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace('editor1')
+
+            $("#editor1-preview").click(function () {
+
+                var editor_data = CKEDITOR.instances.editor1.getData();
+                $("#preview").html(editor_data);
+
+            });
+
+            $("#editor1-save").click(function () {
+
+                var editor_data = CKEDITOR.instances.editor1.getData();
+                $("#preview").html(editor_data);
+
+
+
+            });
+
+        </script>
+    }
+
+
+
 </body>
 </html>

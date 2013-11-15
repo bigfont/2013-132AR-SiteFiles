@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using ArcEconomics.Models;
+using System.Web.Security;
 
 namespace ArcEconomics.Filters
 {
@@ -38,12 +39,30 @@ namespace ArcEconomics.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);                                    
                 }
                 catch (Exception ex)
                 {
                     throw new InvalidOperationException("The ASP.NET Simple Membership database could not be initialized. For more information, please see http://go.microsoft.com/fwlink/?LinkId=256588", ex);
                 }
+
+                CreateUsers();
+   
+            }
+
+            private void CreateUsers()
+            {
+                CreateUserDeleteIfExists("bigfont", "password");
+                CreateUserDeleteIfExists("andyrowe", "password");
+            }
+
+            private void CreateUserDeleteIfExists(string username, string password)
+            { 
+                if(WebSecurity.UserExists(username))
+                { 
+                    Membership.DeleteUser(username);
+                }
+                WebSecurity.CreateUserAndAccount(username, password);
             }
         }
     }

@@ -54,6 +54,15 @@ namespace ArcEconomics.Controllers
                 return RedirectToLocal(returnUrl);
             }
 
+            DropBoxService box;
+            SiteNavigationService nav;
+
+            box = new DropBoxService();
+            nav = new SiteNavigationService(this.ControllerContext);
+            model.RootDropBoxDirectory = box.GetRootDirectory();
+            model.CurrentDropBoxDirectory = null;
+            model.SiteNavigation = nav.GetSiteNavigation();
+
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
