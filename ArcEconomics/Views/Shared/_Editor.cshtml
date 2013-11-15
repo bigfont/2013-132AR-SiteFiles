@@ -1,0 +1,11 @@
+﻿@model ArcEconomics.ViewModels.EditorViewModel
+
+<div class="well">
+
+    <input id="actionName" type="hidden" value="@Model.ActionName" />
+    
+    <textarea id="editor1" name="editor">@Model.EditorData</textarea>
+    <button id="editor1-preview" type="button" class="btn btn-primary">Preview</button>
+    <button id="editor1-save" type="button" class="btn btn-primary">Save</button>
+
+</div>

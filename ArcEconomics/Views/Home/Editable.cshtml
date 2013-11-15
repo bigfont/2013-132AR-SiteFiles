@@ -1,0 +1,15 @@
+﻿@model ArcEconomics.ViewModels.EditorViewModel
+
+@if (WebSecurity.IsAuthenticated)
+{
+    @Html.Partial("_Editor", Model)
+}
+else
+{
+    @Html.Partial("_EditorData", Model.EditorData)
+}
+
+
+
+
+

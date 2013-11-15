@@ -13,41 +13,17 @@ using ArcEconomics.Services;
 namespace ArcEconomics.Controllers
 {
     public class HomeController : Controller
-    {        
+    {
         public ActionResult Index()
         {
-            HomeViewModel model;
-            DropBoxService box;
-            SiteNavigationService nav;
-
-            box = new DropBoxService();
-            nav = new SiteNavigationService(this.ControllerContext);
-
-            // populate viewmodel
-            model = new HomeViewModel();
-            model.RootDropBoxDirectory = box.GetRootDirectory();
-            model.CurrentDropBoxDirectory = null;
-            model.SiteNavigation = nav.GetSiteNavigation();
-
-            // return view      
-            return View(model);
+            EditorService eSvc = new EditorService(this.ControllerContext);
+            return View("Editable", eSvc.PopulateEditorViewModel("Index"));
         }
 
         public ActionResult About()
         {
-            ViewModelBase model;
-            DropBoxService box;
-            SiteNavigationService nav;
-
-            box = new DropBoxService();
-            nav = new SiteNavigationService(this.ControllerContext);
-
-            model = new ViewModelBase();
-            model.RootDropBoxDirectory = box.GetRootDirectory();
-            model.CurrentDropBoxDirectory = null;
-            model.SiteNavigation = nav.GetSiteNavigation();
-
-            return View(model);
+            EditorService eSvc = new EditorService(this.ControllerContext);
+            return View("Editable", eSvc.PopulateEditorViewModel("About"));
         }
 
         public ActionResult Directory(string path)
@@ -71,20 +47,8 @@ namespace ArcEconomics.Controllers
 
         public ActionResult Contact()
         {
-            ViewModelBase model;
-            DropBoxService box;
-            SiteNavigationService nav;
-
-            box = new DropBoxService();
-            nav = new SiteNavigationService(this.ControllerContext);
-
-            model = new ViewModelBase();
-
-            model.RootDropBoxDirectory = box.GetRootDirectory();
-            model.CurrentDropBoxDirectory = null;
-            model.SiteNavigation = nav.GetSiteNavigation();
-
-            return View(model);
+            EditorService eSvc = new EditorService(this.ControllerContext);
+            return View("Editable", eSvc.PopulateEditorViewModel("About"));
         }
     }
 }
