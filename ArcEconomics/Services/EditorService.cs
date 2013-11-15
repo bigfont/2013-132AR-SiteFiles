@@ -41,11 +41,14 @@ namespace ArcEconomics.Services
             return editorText;
         }
 
-        public EditorViewModel PopulateEditorViewModel(string actionName)
+        public EditorViewModel PopulateEditorViewModel()
         {
             EditorViewModel model;
             DropBoxService box;
-            SiteNavigationService nav;            
+            SiteNavigationService nav;
+            string currentAction;
+
+            currentAction = this.ControllerContext.RouteData.Values["action"].ToString();
 
             box = new DropBoxService();
 
@@ -59,8 +62,8 @@ namespace ArcEconomics.Services
                         
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = null;
-            model.EditorData = GetEditorData(actionName);
-            model.ActionName = actionName;
+            model.EditorData = GetEditorData(currentAction);
+            model.ActionName = currentAction;
 
             return model;
         }

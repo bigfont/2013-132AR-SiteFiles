@@ -17,13 +17,13 @@ namespace ArcEconomics.Controllers
         public ActionResult Index()
         {
             EditorService eSvc = new EditorService(this.ControllerContext);
-            return View("Editable", eSvc.PopulateEditorViewModel("Index"));
+            return View("Editable", eSvc.PopulateEditorViewModel());
         }
 
         public ActionResult About()
         {
             EditorService eSvc = new EditorService(this.ControllerContext);
-            return View("Editable", eSvc.PopulateEditorViewModel("About"));
+            return View("Editable", eSvc.PopulateEditorViewModel());
         }
 
         public ActionResult Directory(string path)
@@ -48,7 +48,7 @@ namespace ArcEconomics.Controllers
         public ActionResult Contact()
         {
             EditorService eSvc = new EditorService(this.ControllerContext);
-            return View("Editable", eSvc.PopulateEditorViewModel("About"));
+            return View("Editable", eSvc.PopulateEditorViewModel());
         }
     }
 }
