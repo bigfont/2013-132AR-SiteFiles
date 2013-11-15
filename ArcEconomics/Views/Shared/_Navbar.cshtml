@@ -17,17 +17,9 @@
 
             @foreach (ArcEconomics.Models.PageLink link in Model.SiteNavigation.TopLevelPages)
             {
-                string cssClass;
-                if (Model.SiteNavigation.CurrentPage.Equals(link))
-                {
-                    cssClass = "active";
-                }
-                else
-                {
-                    cssClass = string.Empty;
-                }
-               
-
+                // detect current page
+                string cssClass = @MyHelpers.GetActiveClassIfCurrentPage(link, Model.SiteNavigation).ToString();
+              
                 // HACK This could be more DRY.
                 if (link.Path == null || link.Path.Length == 0)
                 {

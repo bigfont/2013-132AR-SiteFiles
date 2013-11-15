@@ -3,7 +3,7 @@
 @if (Model.SiteNavigation.BreadCrumb != null)
 {
     <ol class="breadcrumb">
-        @foreach (var link in Model.SiteNavigation.BreadCrumb)
+        @foreach (ArcEconomics.Models.PageLink link in Model.SiteNavigation.BreadCrumb)
         {
             // HACK This could be more DRY.
             if (link.Path == null || link.Path.Length == 0)
