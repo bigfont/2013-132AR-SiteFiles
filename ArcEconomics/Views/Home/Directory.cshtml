@@ -9,8 +9,6 @@
 
     }
 
-
-
     @if (fileCount + dirCount == 0)
     {
         <p>This folder is empty.</p>
@@ -18,29 +16,33 @@
     else
     {
 
-        <div>
+        <div class="row">
 
-            <ul class="list-unstyled">
-                @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
-                {
-                    <li>
-                        @MyHelpers.FileActionLink(@file.Name, @file.PublicUrl)
-                    </li>
-                }
-            </ul>
+            <div class="col-lg-6">
 
-        </div>
+                <ul class="list-unstyled">
+                    @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
+                    {
+                        <li>
+                            @MyHelpers.FileActionLink(@file.Name, @file.PublicUrl)
+                        </li>
+                    }
+                </ul>
 
-        <div>
+            </div>
 
-            <ul class="list-unstyled">
-                @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
-                {
-                    <li>
-                        @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
-                    </li>
-                }
-            </ul>
+            <div class="col-lg-6">
+
+                <ul class="list-unstyled">
+                    @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
+                    {
+                        <li>
+                            @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
+                        </li>
+                    }
+                </ul>
+
+            </div>
 
         </div>
 
