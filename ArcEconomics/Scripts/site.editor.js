@@ -53,7 +53,7 @@
                             '<strong>Saved!</strong> Your content is safe with us.' + 
                             '</div>');
 
-                    $("body").prepend(saved);
+                    saved.prependTo("body").fadeOut(5000, null);
 
                 }
 
