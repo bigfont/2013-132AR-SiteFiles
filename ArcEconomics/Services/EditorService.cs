@@ -23,13 +23,10 @@ namespace ArcEconomics.Services
         public void Save(EditorViewModel editor)
         {
             string filePath = GetFilePathFromViewName(editor.ActionName);
-            using (StreamWriter outfile = File.CreateText(filePath))
-            {
-                outfile.Write(editor.EditorData);
-            }
+            File.WriteAllText(filePath, editor.EditorData);            
         }
 
-        public string Get(string actionName)
+        public string GetEditorData(string actionName)
         {
             string editorText;
             string filePath;
@@ -62,7 +59,7 @@ namespace ArcEconomics.Services
                         
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = null;
-            model.EditorData = actionName;
+            model.EditorData = GetEditorData(actionName);
             model.ActionName = actionName;
 
             return model;
