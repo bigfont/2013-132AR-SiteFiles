@@ -12,15 +12,3 @@
     </a>
 }
 
-@helper GetActiveClassIfCurrentPage(ArcEconomics.Models.PageLink link, ArcEconomics.Models.SiteNavigation nav)
-{
-    string cssClass;
-    if (nav.CurrentPage.Equals(link))
-    {
-        cssClass = "active";
-    }
-    else
-    {
-        cssClass = string.Empty;
-    }
-}

@@ -5,14 +5,25 @@
     <ol class="breadcrumb">
         @foreach (ArcEconomics.Models.PageLink link in Model.SiteNavigation.BreadCrumb)
         {
-            // HACK This could be more DRY.
-            if (link.Path == null || link.Path.Length == 0)
+            // detect current page
+            string cssClass;
+            if (Model.SiteNavigation.CurrentPage.Equals(link))
             {
-                <li>@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName })</li>
+                cssClass = "active";
             }
             else
             {
-                <li>@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName, path = link.Path })</li>
+                cssClass = string.Empty;
+            }
+
+            // HACK This could be more DRY.
+            if (link.Path == null || link.Path.Length == 0)
+            {
+                <li class="@cssClass">@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName })</li>
+            }
+            else
+            {
+                <li class="@cssClass">@Html.ActionLink(link.LinkText, link.ActionName, new { controller = link.ControllerName, path = link.Path })</li>
             }
         }
     </ol>
