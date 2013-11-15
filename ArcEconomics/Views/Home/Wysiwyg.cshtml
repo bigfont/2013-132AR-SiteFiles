@@ -2,11 +2,11 @@
 
 @if (WebSecurity.IsAuthenticated)
 {
-    @Html.Partial("_Editor", Model)
+    @Html.Partial("_CkEditor", Model)
 }
 else
 {
-    @Html.Partial("_EditorData", Model.EditorData)
+    @Html.Partial("_CkEditorData", Model.Editor.EditorData)
 }
 
 

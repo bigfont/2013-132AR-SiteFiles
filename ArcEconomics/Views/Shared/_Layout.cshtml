@@ -59,8 +59,15 @@
 
                     <h2>Contact Us</h2>
 
-                    @Html.Partial("_ContactInfo")
-
+                    @if (WebSecurity.IsAuthenticated)
+                    {
+                        @Html.Partial("_ContactInfoData", @Model.ContactInfo)
+                    }
+                    else
+                    {
+                        @Html.Partial("_ContactInfo", @Model.ContactInfo)
+                    }
+                 
                 </aside>
 
                 <section class="col-lg-9">

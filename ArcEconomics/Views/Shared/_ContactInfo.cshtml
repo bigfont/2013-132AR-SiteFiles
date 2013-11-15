@@ -1,12 +1,17 @@
-﻿
-<address>
-    <strong>Arc Economics, Inc.</strong><br>
-    795 Folsom Ave, Suite 600<br>
-    Salt Spring Island, BC, H0H, H0H<br>
-    <abbr title="Phone">P:</abbr> (123) 456-7890
-</address>
+﻿@model ArcEconomics.Models.ContactInfo
 
-<address>
-    <strong>Andy Rowe</strong><br>
-    <a href="mailto:andy.rowe@earthlink.net">andy.rowe@earthlink.net</a>
-</address>
+    <address>
+        <input type="text" value="@Model.Street" placeholder="Street" id="Street" />
+        <input type="text" value="@Model.City" placeholder="City" id="City" />
+        <input type="email" value="@Model.Province" placeholder="Province" id="Province" />
+        <input type="text" value="@Model.PostalCode" placeholder="PostalCode" id="PostalCode" />
+        <input type="text" value="@Model.Phone" placeholder="Phone" id="Phone" />
+    </address>
+
+    <address>
+        <input type="text" value="@Model.FirstName" placeholder="FirstName" id="FirstName" />
+        <input type="text" value="@Model.LastName" placeholder="LastName" id="LastName" />
+        <input type="email" value="@Model.Email" placeholder="Email" id="Email" />
+    </address>
+    
+    <button id="contactinfo-save">Save</button>

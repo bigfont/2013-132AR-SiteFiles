@@ -17,13 +17,13 @@ namespace ArcEconomics.Controllers
         public ActionResult Index()
         {
             EditorService eSvc = new EditorService(this.ControllerContext);
-            return View("Editable", eSvc.PopulateEditorViewModel());
+            return View("Wysiwyg", eSvc.PopulateEditorViewModel());
         }
 
         public ActionResult About()
         {
             EditorService eSvc = new EditorService(this.ControllerContext);
-            return View("Editable", eSvc.PopulateEditorViewModel());
+            return View("Wysiwyg", eSvc.PopulateEditorViewModel());
         }
 
         public ActionResult Directory(string path)
@@ -31,15 +31,18 @@ namespace ArcEconomics.Controllers
             DirectoryViewModel model;
             DropBoxService box;
             SiteNavigationService nav;
+            ContactInfoService cSvc;
 
             box = new DropBoxService();
             nav = new SiteNavigationService(this.ControllerContext);
+            cSvc = new ContactInfoService();
 
             // populate the root dir
             model = new DirectoryViewModel();
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = box.GetDirectoryByName(path);
             model.SiteNavigation = nav.GetSiteNavigation(model.CurrentDropBoxDirectory);
+            model.ContactInfo = cSvc.GetContactInfo();
 
             // return view   
             return View(model);
@@ -48,7 +51,7 @@ namespace ArcEconomics.Controllers
         public ActionResult Contact()
         {
             EditorService eSvc = new EditorService(this.ControllerContext);
-            return View("Editable", eSvc.PopulateEditorViewModel());
+            return View("Wysiwyg", eSvc.PopulateEditorViewModel());
         }
     }
 }

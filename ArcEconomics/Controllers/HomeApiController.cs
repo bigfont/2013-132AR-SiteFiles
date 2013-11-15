@@ -1,4 +1,5 @@
-﻿using ArcEconomics.Services;
+﻿using ArcEconomics.Models;
+using ArcEconomics.Services;
 using ArcEconomics.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace ArcEconomics.Controllers
 {
     public class HomeApiController : ApiController
     {
-        public HttpResponseMessage Post(EditorViewModel editor)
+        public HttpResponseMessage Post(Editor editor)
         {
             HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
 

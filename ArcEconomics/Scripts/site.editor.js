@@ -67,6 +67,11 @@
 
     });
 
+    $("#contactinfo-save").click(function () {
+
+        window.alert('save');
+
+    });
 
 })();
 

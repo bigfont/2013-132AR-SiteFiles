@@ -15,5 +15,6 @@ namespace ArcEconomics.ViewModels
         public SiteNavigation SiteNavigation;
         public DropBoxDirectory RootDropBoxDirectory;
         public DropBoxDirectory CurrentDropBoxDirectory;
+        public ContactInfo ContactInfo;
     }
 }
