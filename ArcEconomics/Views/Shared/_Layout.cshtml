@@ -45,27 +45,39 @@
 
         <article class="row">
 
-            <header>
+            <div class="col-lg-10 col-lg-offset-2">
 
-                @Html.Partial("_Breadcrumb", @Model)
+                <div class="row">
 
-            </header>
+                    <header>
 
-            <aside class="col-lg-3">
+                        @Html.Partial("_Breadcrumb", @Model)
 
-                <h2>Contact Us</h2>
+                    </header>
 
-                @Html.Partial("_ContactInfo")
+                </div>
 
-            </aside>
+                <div class="row">
 
-            <section class="col-lg-9">
+                    <aside class="col-lg-3">
 
-                <h1>@Model.SiteNavigation.CurrentPage.LinkText</h1>
+                        <h2>Contact Us</h2>
 
-                @RenderBody()
+                        @Html.Partial("_ContactInfo")
 
-            </section>
+                    </aside>
+
+                    <section class="col-lg-9">
+
+                        <h1>@Model.SiteNavigation.CurrentPage.LinkText</h1>
+
+                        @RenderBody()
+
+                    </section>
+
+                </div>
+
+            </div>
 
         </article>
 
