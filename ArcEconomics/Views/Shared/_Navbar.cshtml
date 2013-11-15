@@ -19,7 +19,7 @@
             {
                 // detect current page
                 string cssClass;
-                if (Model.SiteNavigation.CurrentPage.Equals(link))
+                if (Model.SiteNavigation.CurrentPage.Equals(link) || Model.SiteNavigation.CurrentPage.Path.Contains(link.LinkText))
                 {
                     cssClass = "active";
                 }
