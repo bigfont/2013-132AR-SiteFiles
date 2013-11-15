@@ -48,18 +48,21 @@ namespace ArcEconomics.Services
         {
             EditorViewModel model;
             DropBoxService box;
-            SiteNavigationService nav;
-            EditorService editorSvc;
+            SiteNavigationService nav;            
 
             box = new DropBoxService();
-            nav = new SiteNavigationService(this.ControllerContext);
-            editorSvc = new EditorService();
 
             model = new EditorViewModel();
+
+            if(this.ControllerContext != null)
+            {
+                nav = new SiteNavigationService(this.ControllerContext);
+                model.SiteNavigation = nav.GetSiteNavigation();
+            }
+                        
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = null;
-            model.SiteNavigation = nav.GetSiteNavigation();
-            model.EditorData = editorSvc.Get(actionName);
+            model.EditorData = actionName;
             model.ActionName = actionName;
 
             return model;

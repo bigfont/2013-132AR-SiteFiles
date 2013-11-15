@@ -17,7 +17,7 @@ namespace ArcEconomics.Controllers
         {
             HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
 
-            EditorService editorSvc = new EditorService();
+            EditorService editorSvc = new EditorService(null);
             editorSvc.Save(editor);
 
             return response;
