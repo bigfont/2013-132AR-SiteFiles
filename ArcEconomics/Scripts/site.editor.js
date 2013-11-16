@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    function AjaxSave(source, apiControllerName) {
+    function AjaxSave(source, apiControllerName, doAlert) {
 
         var jqxhr;
 
@@ -22,7 +22,7 @@
             })
             .always(function () {
 
-                if (status == 200) {
+                if (alert && status == 200) {
 
                     window.alert("Saved!");
                 }
@@ -38,7 +38,7 @@
 
     CKEDITOR.replace('editor1')
 
-    function SaveEditor()
+    function SaveEditor(doAlert)
     {
         var action_name;
         var editor_data;
@@ -56,10 +56,10 @@
             'ActionName': action_name
         }
 
-        AjaxSave(source, "ckeditorapi");
+        AjaxSave(source, "ckeditorapi", doAlert);
     }
 
-    function SaveContactInfo()
+    function SaveContactInfo(doAlert)
     {
         var source;
 
@@ -77,7 +77,7 @@
 
         }
 
-        AjaxSave(source, 'ContactInfoApi')
+        AjaxSave(source, 'ContactInfoApi', doAlert);
     }
 
     $("#btn-save").click(function () {
