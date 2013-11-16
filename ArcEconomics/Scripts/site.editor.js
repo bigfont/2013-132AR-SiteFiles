@@ -78,7 +78,7 @@
     $("#btn-save").click(function () {
 
         saveEditor();
-        saveContactInfo();
+        saveContactInfo(true);
 
     });
 
