@@ -27,15 +27,17 @@ namespace ArcEconomics.Controllers
             LoginModel model;
             DropBoxService box;
             SiteNavigationService nav;
+            ContactInfoService cSvc;
 
             box = new DropBoxService();
             nav = new SiteNavigationService(this.ControllerContext);
+            cSvc = new ContactInfoService();
 
-            // populate viewmodel
             model = new LoginModel();
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = null;
             model.SiteNavigation = nav.GetSiteNavigation();
+            model.ContactInfo = cSvc.GetContactInfo();
 
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
@@ -56,12 +58,16 @@ namespace ArcEconomics.Controllers
 
             DropBoxService box;
             SiteNavigationService nav;
+            ContactInfoService cSvc;
 
             box = new DropBoxService();
             nav = new SiteNavigationService(this.ControllerContext);
+            cSvc = new ContactInfoService();
+
             model.RootDropBoxDirectory = box.GetRootDirectory();
             model.CurrentDropBoxDirectory = null;
             model.SiteNavigation = nav.GetSiteNavigation();
+            model.ContactInfo = cSvc.GetContactInfo();
 
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");

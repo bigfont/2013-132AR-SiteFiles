@@ -61,11 +61,11 @@
 
                     @if (WebSecurity.IsAuthenticated)
                     {
-                        @Html.Partial("_ContactInfoData", @Model.ContactInfo)
+                        @Html.Partial("_ContactInfo", @Model.ContactInfo)
                     }
                     else
                     {
-                        @Html.Partial("_ContactInfo", @Model.ContactInfo)
+                        @Html.Partial("_ContactInfoData", @Model.ContactInfo)
                     }
                  
                 </aside>

@@ -12,14 +12,14 @@ using System.Web.Http;
 
 namespace ArcEconomics.Controllers
 {
-    public class HomeApiController : ApiController
+    public class ContactInfoApiController : ApiController
     {
-        public HttpResponseMessage Post(Editor editor)
+        public HttpResponseMessage Post(ContactInfo contactInfo)
         {
             HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
 
-            EditorService editorSvc = new EditorService(null);
-            editorSvc.Save(editor);
+            ContactInfoService cSvc = new ContactInfoService();
+            cSvc.Save(contactInfo);
 
             return response;
         }
