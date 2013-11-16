@@ -24,13 +24,7 @@
 
                 if (status == 200) {
 
-                    saved = $('<div id="editor1-saved" class="alert alert-success alert-dismissable">' +
-                            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                            '<strong>Saved!</strong> Your content is safe with us.' +
-                            '</div>');
-
-                    saved.prependTo("body").fadeOut(5000, null);
-
+                    window.alert("Saved!");
                 }
 
             });
