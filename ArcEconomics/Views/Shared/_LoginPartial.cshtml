@@ -13,7 +13,7 @@
 }
 else if (Model.CurrentPage.ActionName.Equals("Index"))
 {
-    // only show the login link on the home page.
+    // only show the login link on the Index action
     <ul class="list-inline">
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
