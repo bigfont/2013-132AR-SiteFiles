@@ -16,29 +16,23 @@
     else
     {
 
-       
+        <ul class="list-unstyled">
+            @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
+            {
+                <li>
+                    @MyHelpers.FileActionLink(@file.Name, @file.PublicUrl)
+                </li>
+            }
+        </ul>
 
-                <ul class="list-unstyled">
-                    @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
-                    {
-                        <li>
-                            @MyHelpers.FileActionLink(@file.Name, @file.PublicUrl)
-                        </li>
-                    }
-                </ul>
-
-     
-
-                <ul class="list-unstyled">
-                    @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
-                    {
-                        <li>
-                            @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
-                        </li>
-                    }
-                </ul>
-
-  
+        <ul class="list-unstyled">
+            @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
+            {
+                <li>
+                    @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
+                </li>
+            }
+        </ul>
     }
 
 </section>
