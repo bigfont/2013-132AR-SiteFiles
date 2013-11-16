@@ -16,9 +16,7 @@
     else
     {
 
-        <div class="row">
-
-            <div class="col-lg-6">
+       
 
                 <ul class="list-unstyled">
                     @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
@@ -29,9 +27,7 @@
                     }
                 </ul>
 
-            </div>
-
-            <div class="col-lg-6">
+     
 
                 <ul class="list-unstyled">
                     @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
@@ -42,10 +38,7 @@
                     }
                 </ul>
 
-            </div>
-
-        </div>
-
+  
     }
 
 </section>
