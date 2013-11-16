@@ -1,10 +1,15 @@
-﻿(function () {
+﻿/*jslint browser: true*/
+/*global $, jQuery, CKEDITOR*/
 
-    function AjaxSave(source, apiControllerName, doAlert) {
+(function () {
 
-        var jqxhr;
+    "use strict";
 
-        jqxhr = $.ajax({
+    function ajaxSave(source, apiControllerName, doAlert) {
+
+        var status;
+
+        $.ajax({
             url: "/api/" + apiControllerName,
             dataType: "json",
             data: source,
@@ -22,29 +27,18 @@
             })
             .always(function () {
 
-                if (alert && status == 200) {
+                if (doAlert && status === 200) {
 
                     window.alert("Saved!");
                 }
 
             });
-
-        // Perform other work here ...
-        // Set another completion function for the request above
-        jqxhr.always(function () {
-
-        });
     }
 
-    CKEDITOR.replace('editor1')
+    CKEDITOR.replace('editor1');
 
-    function SaveEditor(doAlert)
-    {
-        var action_name;
-        var editor_data;
-        var source;
-        var status;
-        var saved;
+    function saveEditor(doAlert) {
+        var action_name, editor_data, source;
 
         action_name = $("#actionName").val();
 
@@ -54,13 +48,12 @@
         source = {
             'EditorData': editor_data,
             'ActionName': action_name
-        }
+        };
 
-        AjaxSave(source, "ckeditorapi", doAlert);
+        ajaxSave(source, "ckeditorapi", doAlert);
     }
 
-    function SaveContactInfo(doAlert)
-    {
+    function saveContactInfo(doAlert) {
         var source;
 
         source = {
@@ -75,17 +68,17 @@
             'LastName': $("#LastName").val(),
             'Email': $("#Email").val()
 
-        }
+        };
 
-        AjaxSave(source, 'ContactInfoApi', doAlert);
+        ajaxSave(source, 'ContactInfoApi', doAlert);
     }
 
     $("#btn-save").click(function () {
 
-        SaveEditor();
-        SaveContactInfo();
+        saveEditor();
+        saveContactInfo();
 
     });
 
-})();
+}());
 
