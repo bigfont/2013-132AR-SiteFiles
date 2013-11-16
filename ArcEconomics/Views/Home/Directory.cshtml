@@ -1,44 +1,47 @@
 ﻿@model ArcEconomics.ViewModels.DirectoryViewModel
 
-<section id="dropbox-explorer" class="well">
+@Html.Partial("_Breadcrumb", Model)
 
-    @{
+<section id="dropbox-explorer" class="panel panel-default">
+    <div class="panel-body">
 
-        int fileCount = Model.CurrentDropBoxDirectory.ChildFiles.Count();
-        int dirCount = Model.CurrentDropBoxDirectory.ChildDirectories.Count();
+        @{
 
-    }
+            int fileCount = Model.CurrentDropBoxDirectory.ChildFiles.Count();
+            int dirCount = Model.CurrentDropBoxDirectory.ChildDirectories.Count();
 
-    @if (fileCount + dirCount == 0)
-    {
-        <p>This folder is empty.</p>
-    }
-    else
-    {
-
-        if (fileCount > 0)
-        {
-            <ul class="list-unstyled">
-                @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
-                {
-                    <li>
-                        @MyHelpers.FileActionLink(@file.Name, @file.PublicUrl)
-                    </li>
-                }
-            </ul>
         }
 
-        if (dirCount > 0)
+        @if (fileCount + dirCount == 0)
         {
-            <ul class="list-unstyled">
-                @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
-                {
-                    <li>
-                        @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
-                    </li>
-                }
-            </ul>
+            <p>This folder is empty.</p>
         }
-    }
+        else
+        {
 
+            if (fileCount > 0)
+            {
+                <ul class="list-unstyled">
+                    @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
+                    {
+                        <li>
+                            @MyHelpers.FileActionLink(@file.Name, @file.PublicUrl)
+                        </li>
+                    }
+                </ul>
+            }
+
+            if (dirCount > 0)
+            {
+                <ul class="list-unstyled">
+                    @foreach (ArcEconomics.Models.DropBoxDirectory dir in Model.CurrentDropBoxDirectory.ChildDirectories)
+                    {
+                        <li>
+                            @MyHelpers.DirectoryActionLink(@dir.Name, "Directory", new { controller = "Home", path = dir.Path }, this as WebViewPage)
+                        </li>
+                    }
+                </ul>
+            }
+        }
+    </div>
 </section>
