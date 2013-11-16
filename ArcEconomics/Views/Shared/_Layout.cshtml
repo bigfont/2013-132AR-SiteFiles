@@ -8,26 +8,7 @@
     @Styles.Render("~/Content/themes/bootstrap/css")
     @Styles.Render("~/Content/css")
 
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <link rel="stylesheet/less" type="text/css" href="~/Content/site.less" />
-    <script type="text/javascript">
-        less = {
-            env: "development", // or "production"
-            async: false,       // load imports async
-            fileAsync: false,   // load imports async when in a page under
-            // a file protocol
-            poll: 1000,         // when in watch mode, time in ms between polls
-            functions: {},      // user functions, keyed by name
-            dumpLineNumbers: "comments", // or "mediaQuery" or "all"
-            relativeUrls: false,// whether to adjust url's to be relative
-            // if false, url's are already relative to the
-            // entry less file
-            rootpath: ":/a.com/"// a path to add on to the start of every url
-            //resource
-        };
-    </script>
-    <script src="~/Scripts/less-1.4.2.min.js"></script>
-
+    <link href="~/Content/Site.css" rel="stylesheet" />    
 
     @Scripts.Render("~/bundles/modernizr")
 </head>
