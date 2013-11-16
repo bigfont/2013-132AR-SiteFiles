@@ -67,7 +67,7 @@
                     {
                         @Html.Partial("_ContactInfoData", @Model.ContactInfo)
                     }
-                 
+
                 </aside>
 
                 <section class="col-lg-9">
@@ -80,15 +80,20 @@
 
             </div>
 
-            <div class="row">
+            @if (Model != null && Model.SiteNavigation.CurrentPage.LinkText.Equals("Home"))
+            {
 
-                <footer class="col-lg-12">
+                <div class="row">
 
-                    @Html.Partial("_Footer")
+                    <footer class="col-lg-12">
 
-                </footer>
+                        @Html.Partial("_Footer")
 
-            </div>
+                    </footer>
+
+                </div>
+
+            }
 
         </article>
 
