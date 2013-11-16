@@ -22,6 +22,7 @@ article {
     z-index: 100;
 }
 
+ol:last-child,
 ul:last-child,
 p:last-child {
     margin-bottom: 0;
