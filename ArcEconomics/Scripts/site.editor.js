@@ -44,18 +44,11 @@
 
     CKEDITOR.replace('editor1')
 
-    $("#editor1-preview").click(function () {
-
-        var editor_data = CKEDITOR.instances.editor1.getData();
-        $("#preview").html(editor_data);
-
-    });
-
-    $("#editor1-save").click(function () {
-
+    function SaveEditor()
+    {
         var action_name;
         var editor_data;
-        var source;        
+        var source;
         var status;
         var saved;
 
@@ -69,17 +62,16 @@
             'ActionName': action_name
         }
 
-        AjaxSave(source, "ckeditorapi")
+        AjaxSave(source, "ckeditorapi");
+    }
 
-    });
-
-    $("#contactinfo-save").click(function () {
-
+    function SaveContactInfo()
+    {
         var source;
 
         source = {
 
-            'CompanyName' : $("#CompanyName").val(),
+            'CompanyName': $("#CompanyName").val(),
             'Street': $("#Street").val(),
             'City': $("#City").val(),
             'Province': $("#Province").val(),
@@ -92,6 +84,12 @@
         }
 
         AjaxSave(source, 'ContactInfoApi')
+    }
+
+    $("#btn-save").click(function () {
+
+        SaveEditor();
+        SaveContactInfo();
 
     });
 
