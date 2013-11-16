@@ -63,7 +63,9 @@
             'City': $("#City").val(),
             'Province': $("#Province").val(),
             'PostalCode': $("#PostalCode").val(),
+            'Country': $("#Country").val(),
             'Phone': $("#Phone").val(),
+            'Fax': $("#Fax").val(),
             'FirstName': $("#FirstName").val(),
             'LastName': $("#LastName").val(),
             'Email': $("#Email").val()
