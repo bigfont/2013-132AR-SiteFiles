@@ -1,13 +1,15 @@
 ﻿@model ArcEconomics.Models.ContactInfo
 
 <address>
-    <strong>@Model.CompanyName</strong><br>
-    @Model.Street<br>
-    @Model.City, @Model.Province, @Model.PostalCode<br>
+    <strong>@Model.CompanyName</strong><br />
+    @Model.Street<br />
+    @Model.City, @Model.Province, @Model.PostalCode<br />
+    @Model.Country<br />
     <abbr title="Phone">P:</abbr>&nbsp;@Model.Phone
+    <abbr title="Fax">F:</abbr>&nbsp;@Model.Fax
 </address>
 
 <address>
-    <strong>@Model.FirstName @Model.LastName</strong><br>
+    <strong>@Model.FirstName @Model.LastName</strong><br />
     <a href="mailto:@Model.Email">@Model.Email</a>
 </address>
