@@ -16,7 +16,7 @@
     else
     {
 
-        @if (fileCount > 0)
+        if (fileCount > 0)
         {
             <ul class="list-unstyled">
                 @foreach (ArcEconomics.Models.DropBoxFile file in Model.CurrentDropBoxDirectory.ChildFiles)
