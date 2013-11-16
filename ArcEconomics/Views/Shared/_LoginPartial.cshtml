@@ -1,4 +1,6 @@
-﻿@if (Request.IsAuthenticated)
+﻿@model ArcEconomics.Models.SiteNavigation
+
+@if (Request.IsAuthenticated)
 {
     <text>
         Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
@@ -9,13 +11,10 @@
         }
     </text>
 }
-else
+else if (Model.CurrentPage.ActionName.Equals("Home"))
 {
+    // only show the login link on the home page.
     <ul class="list-inline">
-
-        @*No registration*@
-        @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
-
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
