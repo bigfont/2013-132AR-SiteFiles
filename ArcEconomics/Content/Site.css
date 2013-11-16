@@ -26,3 +26,16 @@ ul:last-child,
 p:last-child {
     margin-bottom: 0;
 }
+
+
+@media print {
+
+a[href]:after {
+    content: "";
+  }
+
+  abbr[title]:after {
+    content: "";
+  }
+
+}
