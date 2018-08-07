@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcEconomics", "ArcEconomics.csproj", "{323C1A93-B888-4D01-978B-3CCEDC45D40B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspDropBox.Core", "..\DropBox.Core\DropBox.Core\AspDropBox.Core.csproj", "{DDE2B6D5-88B7-46E6-9AA8-D9BE55339259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dropbox.Core.Tests", "..\DropBox.Core\Dropbox.Core.Tests\Dropbox.Core.Tests.csproj", "{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{323C1A93-B888-4D01-978B-3CCEDC45D40B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{323C1A93-B888-4D01-978B-3CCEDC45D40B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{323C1A93-B888-4D01-978B-3CCEDC45D40B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE2B6D5-88B7-46E6-9AA8-D9BE55339259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE2B6D5-88B7-46E6-9AA8-D9BE55339259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE2B6D5-88B7-46E6-9AA8-D9BE55339259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE2B6D5-88B7-46E6-9AA8-D9BE55339259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B5634C6-353C-44F6-A84A-FAF07D0F10F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {355407F8-9CCD-40E9-B0DB-1C04ED6589A4}
 	EndGlobalSection
 EndGlobal
